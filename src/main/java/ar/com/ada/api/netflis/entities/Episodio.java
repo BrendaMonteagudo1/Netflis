@@ -1,18 +1,14 @@
 package ar.com.ada.api.netflis.entities;
 
-public class Episodio extends Temporada {
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+public class Episodio {
 
-    
     private Integer numeroEpisodio;
+    private String nombre;
 
-
-    public Integer getNumeroEpisodio() {
-        return numeroEpisodio;
-    }
-
-    public void setNumeroEpisodio(Integer numeroEpisodio) {
-        this.numeroEpisodio = numeroEpisodio;
-    }
 
 }

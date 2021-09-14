@@ -1,36 +1,22 @@
 package ar.com.ada.api.netflis.entities;
 
+import java.util.List;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.Getter;
+import lombok.Setter;
+
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 
+@Getter
+@Setter
 @Document(collection = "Series")
-public class Serie {
+public class Serie extends Contenido {
 
-    @JsonSerialize(using = ToStringSerializer.class) //convertidor a String ya que _id es objectId
-    private ObjectId _id;
-
-    private Temporada temporada;
-
-    private String nombre;
-
-    public Temporada getTemporada() {
-        return temporada;
-    }
-
-    public void setTemporada(Temporada temporada) {
-        this.temporada = temporada;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
+    private List<Temporada> temporadas;
 
 }

@@ -11,5 +11,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 @Repository
 public interface PeliculaRepository extends MongoRepository <Pelicula,ObjectId> {
     
-    Pelicula crearPelicula(Pelicula pelicula);
+    
 }

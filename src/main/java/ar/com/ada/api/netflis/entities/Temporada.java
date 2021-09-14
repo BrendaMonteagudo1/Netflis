@@ -2,32 +2,23 @@ package ar.com.ada.api.netflis.entities;
 
 import java.util.*;
 
-public class Temporada extends Serie {
-    
+import lombok.*;
+
+@Getter
+@Setter
+public class Temporada {
 
     private Integer numero;
-    public String nombre; //Esto es el nombre de la temporada y no del capitulo
-    public List<Episodio> episodios  = new ArrayList<>();
+    private String nombre; // Esto es el nombre de la temporada y no del capitulo
+    private List<Episodio> episodios = new ArrayList<>();
 
+    public Episodio buscarEpisodio(Integer numeroEpisodio) {
 
-    public Episodio buscarEpisodio(Integer numeroEpisodio){
-    
-        for (Episodio episodio : this.episodios){
-            if (episodio.getNumero() == numeroEpisodio)
+        for (Episodio episodio : this.episodios) {
+            if (episodio.getNumeroEpisodio().equals(numeroEpisodio))
                 return episodio;
         }
         return null;
-    }
-
-
-  // GET Y SET DE NUMERO
-
-    public Integer getNumero(){
-    return this.numero;
-    }
-
-    public void setNumero(Integer numero){
-    this.numero = numero;
     }
 
 

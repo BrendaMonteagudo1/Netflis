@@ -2,8 +2,19 @@ package ar.com.ada.api.netflis.entities;
 
 import java.util.*;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
+import org.bson.types.ObjectId;
+
+import lombok.*;
+
+@Getter
+@Setter
 public class Contenido {
+
+    @JsonSerialize(using = ToStringSerializer.class) // convertidor a String ya que _id es objectId
+    private ObjectId _id;
 
     private String nombre;
 
@@ -12,9 +23,8 @@ public class Contenido {
     private IdiomaEnum idiomaOrigen;
 
     private int añoLanzamiento;
-    
+
     public List<Actor> actores = new ArrayList<>();
-    
 
     public String getNombre() {
         return nombre;
@@ -56,7 +66,6 @@ public class Contenido {
         this.actores = actores;
     }
 
-
     public enum GeneroEnum {
         TERROR(1), ROMANTICA(2), COMEDIA(3), FANTASIA(4), ANIMADA(5);
 
@@ -83,7 +92,6 @@ public class Contenido {
         }
     }
 
-    
     public enum IdiomaEnum {
         ESPANOL(1), INGLES(2), ITALIANO(3), FRANCES(4), RUSO(5);
 
